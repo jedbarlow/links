@@ -1,9 +1,14 @@
-Links 2.8
----------
+Links 2.8 - Fork
+----------------
+
+This is a fork of the Links web browser application.
+
+Modifications:
+
+  - Add vi-style jk scrolling
 
 Links
 =====
-
 
 Contents
 --------
