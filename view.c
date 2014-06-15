@@ -3069,8 +3069,8 @@ static int frame_ev(struct session *ses, struct f_data_c *fd, struct event *ev)
 				mem_free(current_link);
 			}
 		}
-		else if (ev->x == KBD_INS || (upcase(ev->x) == 'P' && ev->y & KBD_CTRL)) rep_ev(ses, fd, scroll, -1 - !ses->kbdprefix.rep);
-		else if (ev->x == KBD_DEL || (upcase(ev->x) == 'N' && ev->y & KBD_CTRL)) rep_ev(ses, fd, scroll, 1 + !ses->kbdprefix.rep);
+		else if (ev->x == KBD_INS || (ev->x == 'k' && !(ev->y & KBD_ALT || ev->y & KBD_CTRL)) || (upcase(ev->x) == 'P' && ev->y & KBD_CTRL)) rep_ev(ses, fd, scroll, -1 - !ses->kbdprefix.rep);
+		else if (ev->x == KBD_DEL || (ev->x == 'j' && !(ev->y & KBD_ALT || ev->y & KBD_CTRL)) || (upcase(ev->x) == 'N' && ev->y & KBD_CTRL)) rep_ev(ses, fd, scroll, 1 + !ses->kbdprefix.rep);
 		else if (ev->x == '[') rep_ev(ses, fd, hscroll, -1 - 7 * !ses->kbdprefix.rep);
 		else if (ev->x == ']') rep_ev(ses, fd, hscroll, 1 + 7 * !ses->kbdprefix.rep);
 		/*else if (upcase(ev->x) == 'Y' && ev->y & KBD_CTRL) rep_ev(ses, fd, scroll, -1);

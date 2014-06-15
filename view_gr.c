@@ -1236,10 +1236,10 @@ int g_frame_ev(struct session *ses, struct f_data_c *fd, struct event *ev)
 				up:
 				return scroll_v(fd, -64);
 			}
-			if (ev->x == KBD_DEL || (upcase(ev->x) == 'N' && ev->y & KBD_CTRL)) {
+			if (ev->x == KBD_DEL || (ev->x == 'j' && !(ev->y & KBD_ALT || ev->y & KBD_CTRL)) || (upcase(ev->x) == 'N' && ev->y & KBD_CTRL)) {
 				return scroll_v(fd, 32);
 			}
-			if (ev->x == KBD_INS || (upcase(ev->x) == 'P' && ev->y & KBD_CTRL)) {
+			if (ev->x == KBD_INS || (ev->x == 'k' && !(ev->y & KBD_ALT || ev->y & KBD_CTRL)) || (upcase(ev->x) == 'P' && ev->y & KBD_CTRL)) {
 				return scroll_v(fd, -32);
 			}
 			if (/*ev->x == KBD_DOWN*/ 0) {
